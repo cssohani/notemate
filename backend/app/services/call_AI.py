@@ -6,7 +6,7 @@ load_dotenv()
 openai.api_key = os.getenv("API_KEY")
 
 def summarize_text(text: str) -> str:
-    """Use OpenAI to summarize lecture text into detailed notes."""
+    
     response = openai.ChatCompletion.create(
         model="gpt-4o-mini",   # or gpt-4o if you want better quality
         messages=[

@@ -1,7 +1,7 @@
 import uvicorn
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from backend.app.routes import summarize
+from app.routes import summarize
 
 
 app = FastAPI(title="NoteMate Backend")
