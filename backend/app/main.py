@@ -16,3 +16,6 @@ app.add_middleware(
 )
 app.include_router(summarize.router)
 
+@app.get("/")
+def root():
+    return {"message": "NoteMate backend is running 🚀"}
