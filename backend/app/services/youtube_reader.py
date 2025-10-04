@@ -1,6 +1,7 @@
 import yt_dlp
 
-def download_youtube_audio(url: str, output_path: str = "yt_audio.mp3") -> str:
+import os
+def download_youtube_audio(url: str, output_path: str = "yt_audio") -> str:
     ydl_opts = {
         "format": "bestaudio/best",
         "outtmpl": output_path,
@@ -17,7 +18,10 @@ def download_youtube_audio(url: str, output_path: str = "yt_audio.mp3") -> str:
     try:
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
             ydl.download([url])
-        return output_path
+        final_path = output_path + ".mp3"
+        if not os.path.exists(final_path):
+            raise FileNotFoundError(f"Expected audio file not found: {final_path}")
+        return final_path
     except Exception as e:
         # Bubble the error up to FastAPI
         raise RuntimeError(f"Failed to download YouTube audio: {str(e)}")
