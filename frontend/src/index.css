@@ -1,6 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&family=Nanum+Pen+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alan+Sans:wght@300..900&display=swap');
 @import "tailwindcss";
 
-@theme{
-    --font-leagueSpartan: "League Spartan", sans-serif;
+
+html {
+  scroll-behavior: smooth;
 }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
